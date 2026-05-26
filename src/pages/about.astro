@@ -1,46 +1,64 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import { getListPage } from "@/lib/contentParser.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-import { render } from "astro:content";
+import { getCollection, render } from "astro:content";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const aboutIndex = await getListPage("about", "-index");
-const { Content } = await render(aboutIndex);
-const { title, description, meta_title, image } = aboutIndex.data;
-
-if (aboutIndex.data.draft) {
-  return Astro.redirect("/404");
-}
+const team = (await getCollection("team")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
 ---
 
-<Base
-  title={title}
-  meta_title={meta_title}
-  description={description}
-  image={image}
->
-  <section class="section-sm">
+<Base title="The Team" meta_title="The Team — You're a Frog?">
+  <!-- Heading -->
+  <section class="bg-gradient pt-40 pb-16 text-center">
     <div class="container">
-      <div class="row justify-center">
-        <div class="md:col-10 lg:col-8">
-          {
-            image && (
-              <ImageMod
-                class="mx-auto mb-6 rounded"
-                src={image}
-                width={1200}
-                height={600}
-                alt={title}
-                format="webp"
-              />
-            )
-          }
-          <h2 set:html={markdownify(title)} class="h3 mb-6" />
-          <div class="content">
-            <Content />
-          </div>
-        </div>
+      <h1 class="mb-4">Meet the Team!</h1>
+      <p class="text-text-light text-lg">The people behind the potions.</p>
+    </div>
+  </section>
+
+  <!-- Team members -->
+  <section class="section">
+    <div class="container">
+      <div class="flex flex-col gap-20">
+        {
+          team.map(async (member) => {
+            const { Content } = await render(member);
+            const { name, role, image, github, linkedin } = member.data;
+            return (
+              <div class="flex flex-col items-start gap-10 md:flex-row">
+                <div class="h-64 w-full flex-shrink-0 overflow-hidden rounded-xl bg-border md:w-64">
+                  <img
+                    src={image}
+                    alt={name}
+                    class="h-full w-full object-cover"
+                  />
+                </div>
+                <div class="flex-1">
+                  <h2 class="mb-1">{name}</h2>
+                  <p class="mb-5 text-sm uppercase tracking-widest text-text-light">
+                    {role}
+                  </p>
+                  <div class="content text-lg leading-relaxed">
+                    <Content />
+                  </div>
+                  <div class="mt-6 flex gap-4">
+                    {github && (
+                      <a href={github} target="_blank" rel="noopener" class="text-2xl text-text-light hover:text-primary transition">
+                        <FaGithub />
+                      </a>
+                    )}
+                    {linkedin && (
+                      <a href={linkedin} target="_blank" rel="noopener" class="text-2xl text-text-light hover:text-primary transition">
+                        <FaLinkedin />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   </section>

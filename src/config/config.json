@@ -1,15 +1,15 @@
 {
   "site": {
-    "title": "Astroplate",
+    "title": "You're a frog?",
     "base_url": "https://astroplate.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
     "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
+    "logo_width": "100",
     "logo_height": "30",
-    "logo_text": "Astroplate"
+    "logo_text": "You're a frog?"
   },
 
   "settings": {
@@ -23,20 +23,20 @@
   },
 
   "announcement": {
-    "enable": true,
-    "content": "<span class='text-center block'>♥️ Loving Astroplate? <a class='underline' href='https://github.com/zeon-studio/astroplate' target='_blank' rel='noopener'>Please ⭐️ on Github</a></span>",
+    "enable": false,
+    "content": "",
     "expire_days": 7
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
+    "copyright": "Designed And Developed by tinier alchemists"
   },
 
   "navigation_button": {
     "enable": true,
     "label": "Github",
-    "link": "https://github.com/zeon-studio/astroplate"
+    "link": "https://github.com/JohnBackflip/you-are-a-frog"
   },
 
   "google_tag_manager": {
@@ -50,11 +50,11 @@
     "settings": {}
   },
 
-  "metadata": {
-    "meta_author": "zeon.studio",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "astro and tailwind boilerplate"
-  },
+ "metadata": {
+  "meta_author": "Tinier Alchemists",
+  "meta_image": "/images/og-image.png",
+  "meta_description": "A cozy potion shop game where you are convinced your frog is the last one alive. Brew, experiment, and navigate a kingdom of silly characters."
+},
 
   "llms": {
     "generate_llms_txt": true,

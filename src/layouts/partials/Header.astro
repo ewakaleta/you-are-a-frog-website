@@ -1,38 +1,20 @@
 ---
-import Logo from "@/components/Logo.astro";
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
-import { IoSearch } from "react-icons/io5";
 
-export interface ChildNavigationLink {
-  name: string;
-  url: string;
-}
-
-export interface NavigationLink {
-  name: string;
-  url: string;
-  hasChildren?: boolean;
-  children?: ChildNavigationLink[];
-}
-
-const { main }: { main: NavigationLink[] } = menu;
-const { navigation_button, settings } = config;
+const { main } = menu;
+const { navigation_button } = config;
 const { pathname } = Astro.url;
 ---
 
-<header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
-  <nav class="navbar container">
-    <!-- logo -->
-    <div class="order-0">
-      <Logo />
-    </div>
-    <!-- navbar toggler -->
+<header class="header fixed top-0 z-30 w-full">
+  <nav class="navbar container relative flex items-center justify-center">
+    <!-- mobile toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
-      class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1"
+      class="absolute right-0 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white"
     >
       <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -45,115 +27,75 @@ const { pathname } = Astro.url;
           transform="rotate(45 10 10)"></polygon>
       </svg>
     </label>
-    <!-- /navbar toggler -->
+
+    <!-- nav links -->
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"
+      class="navbar-nav hidden w-full pb-6 text-center lg:flex lg:w-auto lg:space-x-8 lg:pb-0"
     >
       {
-        main.map((menu) => (
-          <>
-            {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative">
-                <input
-                  type="checkbox"
-                  id={`submenu-${menu.name}`}
-                  class="peer hidden lg:hidden"
-                />
-                <label
-                  for={`submenu-${menu.name}`}
-                  class={`nav-link inline-flex items-center ${
-                    menu.children?.map(({ url }) => url).includes(pathname) ||
-                    menu.children
-                      ?.map(({ url }) => `${url}/`)
-                      .includes(pathname)
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  {menu.name}
-                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </label>
-                <ul class="nav-dropdown-list hidden peer-checked:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
-                  {menu.children?.map((child) => (
-                    <li class="nav-dropdown-item">
-                      <a
-                        href={child.url}
-                        aria-label={child.name}
-                        class={`nav-dropdown-link block ${
-                          (pathname === `${child.url}/` ||
-                            pathname === child.url) &&
-                          "active"
-                        }`}
-                      >
-                        {child.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li class="nav-item">
-                <a
-                  href={menu.url}
-                  class={`nav-link block ${
-                    (pathname === `${menu.url}/` || pathname === menu.url) &&
-                    "active"
-                  }`}
-                >
-                  {menu.name}
-                </a>
-              </li>
-            )}
-          </>
-        ))
-      }
-      {
-        navigation_button.enable && (
-          <li class="mt-4 inline-block lg:hidden">
+        main.map((item) => (
+          <li class="nav-item">
             <a
-              class="btn btn-outline-primary btn-sm"
-              href={navigation_button.link}
-              target={
-                navigation_button.link.startsWith("http") ? "_blank" : "_self"
-              }
-              rel={navigation_button.link.startsWith("http") ? "noopener" : ""}
+              href={item.url}
+              class={`nav-link block ${(pathname === `${item.url}/` || pathname === item.url) && "active"}`}
             >
-              {navigation_button.label}
+              {item.name}
             </a>
           </li>
-        )
+        ))
       }
     </ul>
-    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
-      {
-        settings.search && (
-          <button
-            class="border-border text-text-dark hover:text-primary dark:border-darkmode-border mr-5 inline-block border-r pr-5 text-xl dark:text-white dark:hover:text-darkmode-primary"
-            aria-label="search"
-            data-search-trigger
-          >
-            <IoSearch />
-          </button>
-        )
-      }
-      <ThemeSwitcher className="mr-5" />
-      {
-        navigation_button.enable && (
-          <a
-            class="btn btn-outline-primary btn-sm hidden lg:inline-block"
-            href={navigation_button.link}
-            target={
-              navigation_button.link.startsWith("http") ? "_blank" : "_self"
-            }
-            rel={navigation_button.link.startsWith("http") ? "noopener" : ""}
-          >
-            {navigation_button.label}
-          </a>
-        )
-      }
+
+    <!-- theme switcher + nav button -->
+    <div class="absolute right-0 hidden lg:flex items-center gap-4">
+      <ThemeSwitcher />
+      {navigation_button.enable && (
+        <a
+          class="nav-button btn btn-sm border border-white text-white hover:bg-white hover:text-dark transition"
+          href={navigation_button.link}
+          target={navigation_button.link.startsWith("http") ? "_blank" : "_self"}
+          rel="noopener"
+        >
+          {navigation_button.label}
+        </a>
+      )}
     </div>
   </nav>
 </header>
+
+<script>
+  let scrollController: AbortController | null = null;
+
+  function initHeader() {
+    const header = document.querySelector(".header") as HTMLElement;
+    if (!header) return;
+
+    scrollController?.abort();
+    scrollController = null;
+
+    if (window.location.pathname !== "/") {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+      const hero = document.querySelector("section") as HTMLElement;
+      if (!hero) return;
+
+      scrollController = new AbortController();
+      const update = () => {
+        if (window.scrollY > hero.offsetHeight * 0.9) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      };
+      window.addEventListener("scroll", update, {
+        passive: true,
+        signal: scrollController.signal,
+      });
+      update();
+    }
+  }
+
+  document.addEventListener("astro:page-load", initHeader);
+</script>

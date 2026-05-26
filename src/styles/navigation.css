@@ -1,5 +1,20 @@
 .header {
-  @apply bg-body dark:bg-darkmode-body py-6;
+  @apply py-6;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: color-mix(in srgb, var(--color-body) 65%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.header.scrolled .nav-link {
+  @apply text-text-dark hover:text-text-light;
+}
+
+.header.scrolled .nav-button {
+  @apply border-dark text-dark hover:bg-dark hover:text-white;
 }
 
 /* navbar items */
@@ -19,7 +34,7 @@
 }
 
 .nav-link {
-  @apply text-text-dark hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary block p-3 cursor-pointer font-semibold transition lg:px-2 lg:py-3;
+  @apply block p-3 cursor-pointer font-semibold transition lg:px-4 lg:py-3 text-xl text-white hover:text-white/70;
 }
 
 .nav-dropdown {

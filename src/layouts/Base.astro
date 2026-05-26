@@ -17,7 +17,7 @@ import SearchModal from "./helpers/SearchModal";
 
 // font families - extract font names for Font component (filter out type keys)
 const fontEntries = Object.entries(theme.fonts.font_family).filter(
-  ([key]) => !key.includes("_type"),
+  ([key]: [string, unknown]) => !key.includes("_type"),
 );
 
 // types for frontmatters
@@ -45,7 +45,11 @@ const { title, meta_title, description, image, noindex, canonical } =
       )
     }
     <!-- favicon -->
-    <link rel="shortcut icon" href={config.site.favicon} />
+    <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon_io/site.webmanifest" />
     <!-- theme meta -->
     <meta name="theme-name" content="astroplate" />
     <meta name="msapplication-TileColor" content="#000000" />
@@ -64,9 +68,9 @@ const { title, meta_title, description, image, noindex, canonical } =
 
     <!-- google font css - Astro 6 built-in Font API -->
     {
-      fontEntries.map(([key]) => {
+      fontEntries.map(([key]: [string, unknown]) => {
         const cssVar = `--font-${key}` as any;
-        return <Font cssVariable={cssVar} preload />;
+        return <Font cssVariable={cssVar} preload={true} />;
       })
     }
 
