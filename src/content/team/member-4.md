@@ -1,5 +1,5 @@
 ---
-name: Joel Tan
+name: Joel Tan (he/him)
 role: Game Programmer
 image: "/images/team/joel.jpg"
 order: 4
