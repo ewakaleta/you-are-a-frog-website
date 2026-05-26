@@ -1,8 +1,8 @@
 {
-  "name": "astroplate",
-  "version": "6.1.0",
-  "description": "Astro and Tailwindcss boilerplate",
-  "author": "zeon.studio",
+  "name": "you-are-a-frog",
+  "version": "1.0.0",
+  "description": "Website for You're a Frog? — a cozy potion shop game",
+  "author": "Tinier Alchemists",
   "license": "MIT",
   "packageManager": "yarn@1.22.22",
   "type": "module",

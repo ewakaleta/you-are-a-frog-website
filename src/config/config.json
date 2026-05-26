@@ -45,14 +45,14 @@
   },
 
   "disqus": {
-    "enable": true,
-    "shortname": "themefisher-template",
+    "enable": false,
+    "shortname": "",
     "settings": {}
   },
 
  "metadata": {
   "meta_author": "Tinier Alchemists",
-  "meta_image": "/images/og-image.png",
+  "meta_image": "/images/preview-image.png",
   "meta_description": "A cozy potion shop game where you are convinced your frog is the last one alive. Brew, experiment, and navigate a kingdom of silly characters."
 },
 
