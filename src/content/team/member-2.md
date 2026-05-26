@@ -1,7 +1,7 @@
 ---
-name: Ewa Kaleta
+name: Ewa Kaleta (she/her)
 role: Game Designer, Character Designer, Art Direction
-image: "/images/photo.png"
+image: "/images/team/ewa.png"
 order: 2
 github: "https://github.com/ewakaleta"
 linkedin: "https://www.linkedin.com/in/ewakaleta/"

@@ -52,7 +52,7 @@ const { pathname } = Astro.url;
       <ThemeSwitcher />
       {navigation_button.enable && (
         <a
-          class="nav-button btn btn-sm border border-white text-white hover:bg-white hover:text-dark transition"
+          class="nav-button btn btn-sm transition"
           href={navigation_button.link}
           target={navigation_button.link.startsWith("http") ? "_blank" : "_self"}
           rel="noopener"

@@ -13,8 +13,22 @@
   @apply text-text-dark hover:text-text-light;
 }
 
+.nav-button {
+  border: 1px solid white;
+  color: white;
+}
+.nav-button:hover {
+  background-color: white;
+  color: #1a1a1a;
+}
+
 .header.scrolled .nav-button {
-  @apply border-dark text-dark hover:bg-dark hover:text-white;
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+.header.scrolled .nav-button:hover {
+  background-color: #1a1a1a;
+  color: white;
 }
 
 /* navbar items */

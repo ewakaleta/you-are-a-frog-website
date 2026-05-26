@@ -8,4 +8,6 @@ linkedin: "https://www.linkedin.com/in/joeltanye/"
 itchio: "https://njoyr.itch.io/"
 ---
 
-Programmed the potion crafting system & diary. Also helped out with the story endings
+About me: Programmed the potion crafting system & diary. Also helped out with the story endings
+
+Favorite games: Darkest Dungeon I & II, Maplestory
