@@ -2,6 +2,7 @@
 import Base from "@/layouts/Base.astro";
 import { getCollection, render } from "astro:content";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiItchdotio } from "react-icons/si";
 
 const team = (await getCollection("team")).sort(
   (a, b) => a.data.order - b.data.order,
@@ -13,7 +14,7 @@ const team = (await getCollection("team")).sort(
   <section class="bg-gradient pt-40 pb-16 text-center">
     <div class="container">
       <h1 class="mb-4">Meet the Team!</h1>
-      <p class="text-text-light text-lg">The people behind the potions.</p>
+      <p class="text-text-light text-lg">We are tinier alchemists, a team of 5 with a love for games. This game was developed for the Game Design course at KTH. Find out more about us below!</p>
     </div>
   </section>
 
@@ -24,10 +25,10 @@ const team = (await getCollection("team")).sort(
         {
           team.map(async (member) => {
             const { Content } = await render(member);
-            const { name, role, image, github, linkedin } = member.data;
+            const { name, role, image, github, linkedin, itchio } = member.data;
             return (
               <div class="flex flex-col items-start gap-10 md:flex-row">
-                <div class="h-64 w-full flex-shrink-0 overflow-hidden rounded-xl bg-border md:w-64">
+                <div class="h-90 w-full flex-shrink-0 overflow-hidden rounded-xl bg-border md:w-90">
                   <img
                     src={image}
                     alt={name}
@@ -51,6 +52,11 @@ const team = (await getCollection("team")).sort(
                     {linkedin && (
                       <a href={linkedin} target="_blank" rel="noopener" class="text-2xl text-text-light hover:text-primary transition">
                         <FaLinkedin />
+                      </a>
+                    )}
+                    {itchio && (
+                      <a href={itchio} target="_blank" rel="noopener" class="text-2xl text-text-light hover:text-primary transition">
+                        <SiItchdotio />
                       </a>
                     )}
                   </div>

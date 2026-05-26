@@ -47,6 +47,7 @@ const teamCollection = defineCollection({
     order: z.number(),
     github: z.string().optional(),
     linkedin: z.string().optional(),
+    itchio: z.string().optional(),
   }),
 });
 

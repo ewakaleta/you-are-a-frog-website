@@ -80,7 +80,7 @@ const characters = (await getCollection("characters")).sort(
                 ].map(({ src, label }) => (
                   <figure class="flex flex-col items-center gap-3">
                     <img src={src} alt={label} class="h-56 w-auto object-contain" />
-                    <figcaption class="text-sm text-text-light">{label}</figcaption>
+                    {/* <figcaption class="text-sm text-text-light">{label}</figcaption> */}
                   </figure>
                 ))}
               </div>
@@ -92,10 +92,38 @@ const characters = (await getCollection("characters")).sort(
   }
   <!-- /Game sections -->
 
+  <!-- Trailer -->
+  <section
+    class="relative py-24"
+    style="background-image: url('/images/shop_night.jpg'); background-size: cover; background-position: center;"
+  >
+    <div class="absolute inset-0" style="background-color: rgba(10, 8, 18, 0.65);"></div>
+    <div class="container relative z-10">
+      <div class="flex flex-col items-center gap-12 md:flex-row">
+        <div class="w-full md:w-5/12">
+          <p class="mb-3 text-xl uppercase tracking-widest" style="color: #a78bfa;">Check out the demo!</p>
+          <h2 class="mb-5 text-white">Take a sneak peek into the core mechanics of You're a Frog?</h2>
+        </div>
+        <div class="w-full md:w-7/12">
+          <div class="relative w-full overflow-hidden rounded-xl" style="padding-bottom: 56.25%;">
+            <iframe
+              class="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/YTv9ncXlNDw"
+              title="You're a Frog? — Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Trailer -->
+
   <!-- Faction intro -->
   <section class="py-24 text-center" style="background-color: #0e0b14;">
     <div class="container">
-      <p class="mb-4 text-sm uppercase tracking-widest" style="color: #a78bfa;">
+      <p class="mb-4 text-4xl font-bold uppercase tracking-widest" style="color: #a78bfa;">
         {factionIntro.tag}
       </p>
       <h2 class="mb-6 text-white">{factionIntro.title}</h2>
@@ -113,7 +141,7 @@ const characters = (await getCollection("characters")).sort(
       const { name, faction, factionColor, bgColor, image, portraitSide, bottomAlign } = character.data;
       const isLeft = portraitSide === "left";
       return (
-        <section class={bottomAlign ? "pt-20" : "py-20"} style={`background-color: ${bgColor};`}>
+        <section class={bottomAlign ? "pt-20 pb-20 md:pb-0" : "py-20"} style={`background-color: ${bgColor};`}>
           <div class="container">
             <div class={`flex flex-col items-center gap-12 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}>
               <div class={`flex w-full flex-shrink-0 justify-center md:w-5/12 ${bottomAlign ? "self-end" : ""}`}>
@@ -139,5 +167,21 @@ const characters = (await getCollection("characters")).sort(
     })
   }
   <!-- /Characters -->
+
+  <!-- Feedback -->
+  <section class="py-24 text-center bg-gradient">
+    <div class="container">
+      <h2 class="mb-4">We Want Your Feedback!</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg text-text-light">
+        Scan the QR code to fill in a questionnaire. It helps us a lot!
+      </p>
+      <img
+        src="/images/qr_code_questionnaire.png"
+        alt="Feedback QR code"
+        class="mx-auto w-48"
+      />
+    </div>
+  </section>
+  <!-- /Feedback -->
 
 </Base>

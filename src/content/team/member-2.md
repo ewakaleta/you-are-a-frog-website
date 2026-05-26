@@ -1,10 +1,13 @@
 ---
-name: Name Placeholder
-role: Role Placeholder
+name: Ewa Kaleta
+role: Game Designer, Character Designer, Art Direction
 image: "/images/photo.png"
 order: 2
-github: "https://github.com"
-linkedin: "https://linkedin.com"
+github: "https://github.com/ewakaleta"
+linkedin: "https://www.linkedin.com/in/ewakaleta/"
 ---
+Studies: Computer Science (Visualization and Graphics track) at KTH
 
-Description placeholder. Tell us a bit about yourself — what you worked on, what you brought to the team, or something fun about you.
+About me: Cozy gamer, chaotic creative, somehow things alwawys get done. Wore approximately all the hats: created the faces behind the Kingdom's most important figures, designed the game systems (day/night cycle, potion verification, order system), and animated Ribbit through every silly potion-induced situation we could think of. Programmer by nature, artist by heart, game designer by choice. Also made this website!
+
+Favorite games: Spiritfarer, Tiny Bookshop, Baldur's Gate 3 

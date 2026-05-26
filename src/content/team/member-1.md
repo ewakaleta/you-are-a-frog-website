@@ -1,5 +1,5 @@
 ---
-name: Name Placeholder
+name: Yuewei He
 role: Role Placeholder
 image: "/images/photo.png"
 order: 1

@@ -28,7 +28,7 @@ features:
 
   - title: "Do you really know what you're doing?"
     image: "/images/potions.png"
-    content: "Answer: No. Not really. But you try your best. Every ingredient comes with a super very detailed description. You as the master alchemist should be able to tell what a combination does, right? If not, you can always send it to the Alchemists Guild but they take their sweet sweet time evaluating potions. If you are confident or cannot wait to test your new conconctions - just sell them. The customer will come back next day and tell you what happened anyways."
+    content: "Answer: No. Not really. But you try your best. Every ingredient comes with a super very detailed description. You as the master alchemist should be able to tell what a combination does, right? If not, you can always send it to the Alchemists Guild but they take their sweet sweet time evaluating potions. If you are confident or cannot wait to test your new concoctions - just sell them. The customer will come back next day and tell you what happened anyways."
     bulletpoints:
       - "Unique ingredient combinations to explore"
       - "Unknown effects until tested"

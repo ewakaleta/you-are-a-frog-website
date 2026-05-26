@@ -1,10 +1,11 @@
 ---
-name: Name Placeholder
-role: Role Placeholder
-image: "/images/photo.png"
+name: Joel Tan
+role: Game Programmer
+image: "/images/team/joel.jpg"
 order: 4
-github: "https://github.com"
-linkedin: "https://linkedin.com"
+github: "https://github.com/JohnBackflip"
+linkedin: "https://www.linkedin.com/in/joeltanye/"
+itchio: "https://njoyr.itch.io/"
 ---
 
-Description placeholder. Tell us a bit about yourself — what you worked on, what you brought to the team, or something fun about you.
+Programmed the potion crafting system & diary. Also helped out with the story endings
