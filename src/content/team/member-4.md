@@ -1,6 +1,6 @@
 ---
 name: Joel Tan (he/him)
-role: Game Programmer
+role: Game programmer & designer
 image: "/images/team/joel.jpg"
 order: 4
 github: "https://github.com/JohnBackflip"
@@ -8,6 +8,8 @@ linkedin: "https://www.linkedin.com/in/joeltanye/"
 itchio: "https://njoyr.itch.io/"
 ---
 
-About me: Programmed the potion crafting system & diary. Also helped out with the story endings
+Studies: Bachelor's of Information Systems at SMU
 
-Favorite games: Darkest Dungeon I & II, Maplestory
+About me: I love a good challenge, be it programming, strategy games, or bouldering! I programmed the potion crafting system, diary, helped out with the demo story, and gave insights on game mechanics.
+
+Favorite games: Darkest Dungeon I & II, Maplestory, Slay the Spire
